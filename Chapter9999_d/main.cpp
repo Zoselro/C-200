@@ -2,6 +2,7 @@
 #include<string>
 #include<algorithm>
 #include<sstream>
+#include<vector>
 
 using namespace std;
 
@@ -69,16 +70,18 @@ int main(){
     printf("%d\n", today);
     printf("%s\n,",days_name[today]);
 
-    int data[1][3] = { {0, 1, 2} };
+    int data[2][3] = { {0, 1, 2},{999,7777} };
 
     for(int i = 0 ; i < 1 ; i++){
         for(int j = 0 ; j < sizeof(data) / sizeof(int) ; j++)
-            cout << "data : " << data[i][j] << endl;
+            cout << "data[" << i << "][" << j << "] : " << data[i][j] << endl;
     }
 
     cout << "**data : " << **data << endl;
     cout << "*data : " << *data << endl;
     cout << "data : " << data << endl;
+
+    vector<vector<int>> data2 = {{1,2,3},{5,7},{999,888,777}};
 
     return 0;
 }
