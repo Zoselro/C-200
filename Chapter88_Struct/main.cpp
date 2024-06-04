@@ -21,6 +21,7 @@ int main(){
     Goryeo[1].name = "효정공주";
     Goryeo[1].father = "고려 현종";
 
+
     cout << " == 조선 공주 == " << endl;
     cout << jungmyung.name << endl;
     cout << jungmyung.father << endl;

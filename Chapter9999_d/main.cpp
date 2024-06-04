@@ -10,6 +10,12 @@ enum days{
     sun, sat, fri, thu, wed, tues, mon
 };
 
+struct aaa{
+    int a = 10;
+    int b = 20;
+    char ch = 'A';
+}inprogress[2];
+
 
 int main(){
 
@@ -82,6 +88,23 @@ int main(){
     cout << "data : " << data << endl;
 
     vector<vector<int>> data2 = {{1,2,3},{5,7},{999,888,777}};
+
+    aaa kk;
+    kk.a = 30;
+    kk.b = 40;
+    kk.ch = 'B';
+
+    cout << kk.a << endl;
+    cout << kk.b << endl;
+    cout << kk.ch << endl;
+
+    inprogress[0].a = 30;
+    inprogress[0].b = 70;
+    inprogress[0].c = 'C';
+
+    inprogress[1].a = 999;
+    inprogress[1].b = 111;
+    inprogress[1].c = 'D';    
 
     return 0;
 }

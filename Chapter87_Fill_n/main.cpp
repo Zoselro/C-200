@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
     int data1[10] = { 0, };
-    fill_n(data1, 2, 10);                                               // 수정할 시작 위치 , 끝위치, 값-> 10 10 0 0 0 0 0 0 0 0 0 0
+    fill_n(data1, 2, 10);                                               // 수정할 시작 위치 , 개수, 값-> 10 10 0 0 0 0 0 0 0 0 0 0
     fill_n(data1 + 4, 3 , 20);                                              // 10 10 0 0 20 20 20 0 0 0
 
     cout << "== data1 결과 ==" << endl;
