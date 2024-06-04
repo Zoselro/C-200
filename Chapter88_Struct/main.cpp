@@ -38,7 +38,6 @@ int main(){
         cout << Goryeo[i].father << endl;
         cout << Goryeo[i].birthday << endl;
     }
-
-
+    
     return 0;
 }
