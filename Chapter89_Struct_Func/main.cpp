@@ -24,12 +24,6 @@ void Print2(Princess &who){
     cout << "jungso.birthday = " << who.birthday << endl;
 }
 
-void Print3(Princess who){
-    who.name = "NAME";
-    who.father = "FATHER";
-    who.birthday = "BIRTHDAY";
-}
-
 int main(){
     jungso.name = "정소공주";
     jungso.father = "조선 태종";
@@ -42,11 +36,6 @@ int main(){
     cout << jungso.birthday << endl;
     cout << "----------------------------------" << endl;
     Print2(jungso);
-    cout << jungso.name << endl;
-    cout << jungso.father << endl;
-    cout << jungso.birthday << endl;
-    cout << "----------------------------------" << endl;
-    Print3(jungso);
     cout << jungso.name << endl;
     cout << jungso.father << endl;
     cout << jungso.birthday << endl;
