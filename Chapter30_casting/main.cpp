@@ -7,13 +7,14 @@ using namespace std;
 int main(){
     int number1 = 65; 
     double number2 = 2.4;
+    int number3 = (double)number1 / number2;
 
-    int number3 = int(number2);
+    number3 = int(number2);
     double number4 = double(number1 / number2);
+    double num4 = static_cast<double>(number1 / number2);
     char ch = char(number1);
 
     int num3 = static_cast<int>(number2);
-    double num4 = static_cast<double>(number1 / number2);
     char ch2 = static_cast<char>(number1);
     
     cout << "num3 : " << num3 << endl;
