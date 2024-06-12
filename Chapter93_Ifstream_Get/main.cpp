@@ -6,7 +6,9 @@ using namespace std;
 int main(){
     ifstream read;
 
-    read.open("D:/Visual Code C++ 200/Chapter93_Ifstream_Get/093.txt", ifstream::in);
+    read.open("D:/Visual Code C++ 200/Chapter93_Ifstream_Get/093.txt", 
+    ifstream::in);
+
 
     if (!read.is_open()){
         cout << "파일을 열 수 없습니다." << endl;
@@ -16,12 +18,6 @@ int main(){
     char line;
     while(read.get(line)){
         cout << line;
-    }
-
-    while (read.eof() == false){
-        cout << line;
-
-        line = read.get();
     }
 
     cout << endl;
