@@ -104,6 +104,6 @@ int main(){
 
     inprogress[1].a = 999;
     inprogress[1].b = 111;
-    inprogress[1].c = 'D';    
+    inprogress[1].c = 'D'; 
     return 0;
 }
