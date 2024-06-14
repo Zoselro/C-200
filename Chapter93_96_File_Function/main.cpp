@@ -51,7 +51,7 @@ int main(){
     read.close() // 파일 닫기
     
     cout << "------ 파일 쓰기 -----" << endl; 
-
+    
     
     
     return 0;
