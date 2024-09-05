@@ -11,5 +11,5 @@ public:
     int OR(int, int);
     int NOT(int);
     int XOR(int, int);
-    void sub(int[8],int[8]);
+    int sub(int[8],int[8],int[8]);
 };
