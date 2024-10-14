@@ -1,0 +1,24 @@
+Engineering Mode
+Platform type
+Vehicle Type
+
+(TCI-P) DT23,A01 -> manual
+나머지는 Auto
+다른놈으로 갔을 때 manual
+
+맥시코에서는 지하 주차장이 많기 때문에, 
+맥시코 관련한 Platform Type과 저희쪽에서 개발했던 TAXI와 다른 차량즉 
+이게 vehicleType인데 여기서 gyro 센서가 Auto 이를 제외한
+나머지는 manual이 돼야 됨
+
+하지만 저희가 맡았던 Platfrom Type 에서 gyro 센서가 manual이 되는 현상이 발생하여
+위치가 튀는 현상이 발생함
+
+이를 고치기 위해 vns라고 vehicle network service 라는 모듈에서 dbus를 통해
+받은 platform type을 통해 특정한 platform type 이 되었을 때만 auto로,
+나머지는 manual로 가게 끔 코드 수정한 적이 있음.
+
+이때 dbus란 DataBus로 주로 통신 IPC를 위핸 메시지 버스 시스템 이며,
+모듈끼리 복잡한 프로그래밍 필요없이 간단하게 통신하여 값을 주고 받고 할 수 있음.
+VNS로부터 특정 값을 sync(동기식) 방식으로 받아오면서 그 값을 다른 모듈에서
+함수의 파라미터로 지정하여 유연하게 그 값으로 처리 할 수 있다.
