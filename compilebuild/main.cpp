@@ -17,7 +17,7 @@ account* NewAccount(string owner) {
     
     // 멤버 초기화
     newAccount->owner = owner;
-    newAccount->balance = 20;
+    newAccount->balance = 200;
 
     // 구조체 포인터 반환
     return newAccount;
