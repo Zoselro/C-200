@@ -1,15 +1,17 @@
-#include<iostream>
+#include <iostream>
+using namespace std;
 
-using namespace std; // std에 있는 모든 함수 또는 변수를 쓰겠다는 표시
+int main() {
+    int A, B;
+    cin >> A >> B;
 
-int main(){
-    int number = 0; // 쓰레기값이 들어오는것을 방지하여 0으로 초기화
-   
-    cout << "숫자를 입력 : "; // 숫자를 입력하라는 화면을 표시 endl 안쓰는 이유는 입력하라고 할 때 입력칸이 엔터를 누른상태로 나오기에 출력 형태가 보기가 좋지 않음(왼쪽 꺽쇠 사용)
+    if (A > B) {
+        cout << ">" << endl;
+    } else if (A < B) {
+        cout << "<" << endl;
+    } else {
+        cout << "==" << endl;
+    }
 
-    cin >> number; // 커서가 깜빡이며 사용자 입력을 기다림, 이때 cout , endl 과 다르게 << 가 아닌 >> 를 사용 (오른쪽 꺽쇠 사용)
-
-    cout << "입력한 숫자는 " << number << " 입니다." << endl; // 사용자가 입력한 숫자를 출력해주고 종료.
-
-    return 0; // 리턴값이 0이면 정상종료, -1이면 에러발생, 1이상이면 정상종료 되었거나 다른인자가 있음을 표시, -2 이하면 어떤 에러가 발생했고 구체적으로 어떤것인가에 대해 나타냄
+    return 0;
 }
