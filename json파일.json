@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<link rel="apple-touch-icon" href="//tketlink.dn.toastoven.net/ticketlink-cdn/web/TLfavicon.ico"/>
+<link rel="icon" type="image/png" href="//tketlink.dn.toastoven.net/ticketlink-cdn/web/TLfavicon.ico"/>
+<link rel="shortcut icon" href="//tketlink.dn.toastoven.net/ticketlink-cdn/web/TLfavicon.ico"/>
+<html lang="ko" ng-app="defaultApp">
+    <head>
+        <meta charset="utf-8">
+        <title>티켓링크</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="naver-site-verification" content="a3dfa4ca6a68b92bead2ed1ba2410051a4e6f80c"/>
+        <link rel="shortcut icon" type="image/x-icon" href="//tketlink.dn.toastoven.net/ticketlink-cdn/web/TLfavicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="//tketlink.dn.toastoven.net/markup_resources/2024110401_M/web/css/common.css">
+        <link rel="stylesheet" type="text/css" href="//tketlink.dn.toastoven.net/markup_resources/2024110401_M/web/css/reserve.css">
+        <link rel="stylesheet" type="text/css" href="//tketlink.dn.toastoven.net/markup_resources/2024110401_M/web/css/linkon.css">
+        <link rel="stylesheet" type="text/css" href="//tketlink.dn.toastoven.net/markup_resources/2024110401_M/web/css/reserve-wait.css">
+        <link rel="stylesheet" type="text/css" href="//tketlink.dn.toastoven.net/markup_resources/2024110401_M/renewal/pcweb/css/ticketlink_renewal.css">
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/jquery-ui.js"></script>
+        <script type="text/javascript" src="/resources/js/login.js"></script>
+        <script type="text/javascript" src="/resources/js/modal.js"></script>
+        <script type="text/javascript" src="/resources/js/netfunnel/netfunnel.js"></script>
+        <script type="text/javascript" src="/resources/js/netfunnel/custom_skin.js"></script>
+        <script type="text/javascript" src="/resources/js/util/tk.Utils.js"></script>
+        <script type="text/javascript" src="/resources/js/google/gaScript.js"></script>
+        <script type="text/javascript" src="/resources/js/aceCounter/aceCounter.js"></script>
+        <script type="text/javascript" src="/resources/js/facebook/facebook.js"></script>
+        <script type="text/javascript" src="/resources/js/nhn_ad/index.js"></script>
+        <noscript>
+            <img src='http://gtc9.acecounter.com:8080/?uid=BS2A39876863068&je=n&' border='0' width='0' height='0' alt=''>
+        </noscript>
+        <!-- S: NHN ACE Topics -->
+        <script async type="text/javascript" src="https://cdn.nhnace.com/libs/aceat.js?pub_code=1487841737"></script>
+        <!-- E: NHN ACE Topics -->
+        <noscript>
+            <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1028038810619064&ev=PageView&noscript=1"/>
+        </noscript>
+        <!-- End Facebook Pixel Code -->
+        <!-- NHN AD MORE Script -->
+        <script async type="text/javascript" src="//cro.myshp.us/resources/common/js/more-common.js"></script>
+        <!-- End NHN AD MORE Script -->
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/action-tracer-1.2.0.js?1731978430443"></script>
+        <style>
+            .react-datepicker__aria-live {
+                display: none;
+            }
+        </style>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/angular.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/angular-vs-repeat-1.1.7.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/hammer.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/hammer-time.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/angular.hammer.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/underscore-1.8.3.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/signals.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/mobile-detect.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/modernizr-custom.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/moment.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/moment-timezone.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/moment-timezone-with-data.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/moment-timezone-with-data-2012-2022.min.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/mobile-detect.min.js"></script>
+        <script type="text/javascript" src="/resources/js/constants/waiting-reservation.constant.js"></script>
+        <script src="/resources/js/legacy-dist/mbuster.main-79cf786272f4d5ab912839ebb2066ff6.js"></script>
+        <script>
+            window.addEventListener('load', () => {
+                const mbusterInfo = {
+                    "memberNo": 23483164,
+                    "ip": "221.153.103.145"
+                };
+
+                if (mbusterInfo) {
+                    window.callMbusterApi = makeCallMbusterApi({
+                        ip: mbusterInfo.ip,
+                        user_login_id: mbusterInfo.memberNo
+                    });
+                    window.callMbusterApi();
+                }
+            }
+            );
+        </script>
+        <style>
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+    </head>
+    <!-- [D] 팝업 사이즈 : 배너 없을때 - 990*790 -->
+    <!-- [D] 팝업 사이즈 : 배너 있을때 - 990*890 / id=container에 class=has_ban 추가 -->
+    <body ng-controller="defaultCtrl">
+        <div id="wrap_reserve">
+            <div id="header">
+                <div class="reserve_title">
+                    <h1>
+                        <span class="blind">티켓링크
+                        
+                    
+                </span>
+                    </h1>
+                    <h2>예매</h2>
+                </div>
+                <reserve-step-bar step="plan" product-type-code="product.productTypeCode" product-class-type="product.productClassType"></reserve-step-bar>
+                <h2 class="blind">좌석선택</h2>
+            </div>
+            <tkl-reservation></tkl-reservation>
+            <!-- 배너영역 -->
+            <div class="reserve_ban">
+                <script type="text/javascript" src="//ads.netinsight.co.kr/NetInsight/js/ticketlink/ticketingbaltleft/495@100"></script>
+                <script type="text/javascript" src="//ads.netinsight.co.kr/NetInsight/js/ticketlink/ticketingbaltright/495@100"></script>
+            </div>
+            <!-- //배너영역 -->
+            <!-- [D] 레이어팝업 -->
+            <tkl-popup-captcha></tkl-popup-captcha>
+            <!-- //[D] 레이어팝업 -->
+            <!-- //회차선택 -->
+            <div id="tkl-schedule-picker"></div>
+        </div>
+        <div id="lottie-loading" class="loading_wrap" style="z-index:9999; display: none;">
+            <div class="loading"></div>
+        </div>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/lottie.min.js"></script>
+        <script>
+            var loadingList = document.getElementsByClassName("loading");
+            for (let i = 0; i < loadingList.length; i++) {
+                let loadingAnimation = bodymovin.loadAnimation({
+                    container: loadingList[i],
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: '//tketlink.dn.toastoven.net/markup_resources/2024110401_M/renewal/mobile/img/json/loading.json'
+                });
+            }
+            var tkLottie = {
+                isShowLoading: function(isShow) {
+                    var element = document.getElementById('lottie-loading');
+                    if (isShow) {
+                        element.style.display = 'block';
+                    } else {
+                        element.style.display = 'none';
+                    }
+                }
+            }
+        </script>
+        <script type="text/javascript" src="/resources/js/reserve/common/stepbar-directive.js"></script>
+        <script type="text/javascript" src="/resources/js/tk.pcweb.product.reserve.seat.gradeAndSeat.common.min.js?1730967148619" charset="UTF-8"></script>
+        <script type="text/javascript" src="/resources/js/tk.pcweb.product.reserve.gradeAndSeat.min.js?1730967148619" charset="UTF-8"></script>
+        <script type="text/javascript" src="//static.tagmanager.toast.com/tag/view/1484"></script>
+        <script type="text/javascript">
+            function aceTraderScript(productId, price, quantity, device, name, totalPrice) {
+                try {
+                    var d = new Date();
+                    var txNumber = d.getFullYear() + '' + (d.getMonth() + 1) + '' + d.getDate() + '' + d.getHours() + '' + d.getMinutes() + '' + d.getSeconds() + '' + d.getDay();
+
+                    window.ne_tgm_q = window.ne_tgm_q || [];
+                    window.ne_tgm_q.push({
+                        tagType: 'conversion',
+                        device: device /*web, mobile, tablet*/
+                        ,
+                        uniqValue: '',
+                        pageEncoding: 'utf-8',
+                        orderNo: txNumber,
+                        items: [{
+                            id: productId /*(íì)IDê°ìë ¥*/
+                            ,
+                            price: price /*(íì)ê°ê²©ì ë³´ìë ¥*/
+                            ,
+                            quantity: quantity /*(íì)ê°¯ìì ë³´ìë ¥*/
+                            ,
+                            category: ""/*ì¹´íê³ ë¦¬ ë|ì¤|ì*/
+                            ,
+                            imgUrl: ""/*imgë§í¬ê°ìë ¥ ex)http://example.com/img/img.jpg*/
+                            ,
+                            name: name /*(íì)ì íëªëë ì íë©ë´ëªìë ¥*/
+                            ,
+                            desc: ""/*ìíìì¸ ì¤ëª text*/
+                            ,
+                            link: ""/*ìíìì¸íì´ì§ URL ex)http://example.com/detail/product.html*/
+                        }],
+                        totalPrice: totalPrice /*ìí ì´ ê¸ì¡ í©ì°*/
+                    });
+                } catch (e) {
+                }
+            }
+        </script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/tklReserve-1.3.0.js"></script>
+        <script type="text/javascript" src="//tketlink.dn.toastoven.net/static/js/tklReserve-vendors-1.3.0.js"></script>
+        <script type="text/javascript">
+            //<[CDATA[
+            var initData = {};
+            initData.product = {
+                "productId": 53189,
+                "registerStateCode": "COMPLETE",
+                "productName": "메이플스토리 2024 WINTER SHOWCASE｜NEXT",
+                "productNameEng": "",
+                "representImageId": 17634649,
+                "representImageUrl": "//image.toast.com/aaaaab/ticketlink/TKL_6/next_pst1111.jpg",
+                "placeName": "일산 킨텍스",
+                "placeNameEng": "Ilsan KINTEX",
+                "hallName": "일산킨텍스 제2전시장 10A홀 ",
+                "hallNameEng": "",
+                "viewAgeName": "만14세이상",
+                "viewAgeNameEng": "Over 14years old",
+                "viewTypeName": "12개월이상",
+                "viewTypeNameEng": "12month and over",
+                "viewClassName": "연령별",
+                "viewClassCode": "AGE",
+                "runningTime": 0,
+                "chargeTypeCode": "CHARGE",
+                "productClassType": "CONCERT",
+                "exposureStateCode": "EXPOSURE",
+                "operateStateCode": "SALE",
+                "serviceType": "TKL",
+                "rootCategoryId": 101,
+                "managementCategoryId": 10185,
+                "categoryType": "CONCERT_EXHIBITION",
+                "adultYn": "N",
+                "emailNeedYn": "N",
+                "startDate": 1733497200000,
+                "endDate": 1733497200000,
+                "saleStartDate": 1731927600000,
+                "productClassCode": "CONCERT",
+                "bigProductYn": "Y",
+                "restSeatExposureYn": true,
+                "notice": "",
+                "reserveCommissionContent": "<b>① 좌석 선점이란?</b><br>\r\n                                            좌석배치도에서 동일한 좌석이 동시에 선택된 경우 먼저 다음 단계로 넘어간 고객이 좌석을 선점하게 됩니다. 따라서 좌석선택 이후 다음단계로 넘어가는 시점에 따라 좌석 선점 여부가 결정됩니다.\r\n                                            <br><br>\r\n                                            <b>② 좌석선택 시 주의사항</b><br>\r\n                                            좌석을 선택한 후 8분 이내에 결제를 완료해야 합니다. 해당 시간 내 결제가 이뤄지지 않을 경우 선택한 좌석의 예매가 취소됩니다.\r\n                                            또한 좌석 선택 시 잔여석은 표기되나 배치도에서 좌석이 보이지 않는 경우 해당 좌석이 선점되어 결제가 진행 중이므로 다른 좌석을 선택하여 주시기 바랍니다.​\r\n                                            \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                ",
+                "reserveCancelContent": "예매수수료는 예매 당일 취소하실 경우만 환불되며, 그 이후 취소 시에는 환불되지 않습니다.<br><br>\r\n                                            예매취소 시 취소일에 따라 취소수수료가 부과될 수 있습니다. (티켓금액의 0~30%)<br><br>\r\n                                            당일관람 예매건에 대해서는 취소가 불가하니 이점 양해 부탁드립니다.<br><br>티켓이 배송된 이후에는 온라인에서 취소가 불가합니다. 티켓을 받으신 후 반송 기한까지 티켓링크 본사로 직접 등기우편을 보내주셔야\r\n                                            취소가 가능합니다.\r\n                                            \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                ",
+                "cancelRefundContent": "<br>\r\n                                            <b>수수료 관련 유의사항</b><br>\r\n                                            예매수수료는 예매 당일 취소하실 경우만 환불되며, 그 이후 취소 시에는 환불되지 않습니다.<br>\r\n                                            취소수수료는 취소시점에 따라 다르게 부과됩니다. (티켓금액의 0~30%)<br>\r\n                                            자세한 사항은 [고객센터&gt;수수료안내] 페이지를 참고해주시기 바랍니다.<br>\r\n                                            <br>\r\n                                            <b>티켓수령안내</b><br>\r\n                                            행사 당일 공연 시작 1시간~30분 전부터 행사장 매표소에서 수령하실 수 있습니다.<br>\r\n                                            티켓 수령 시 예매번호, 예매자 신분증, 예매확인서 등 확인이 필요합니다.<br>\r\n                                            행사 또는 행사일에 따라 티켓 수령 방법 선택이 제한될 수 있습니다.\r\n                                            \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                ",
+                "fanclubYn": "Y",
+                "fanclubNo": 338,
+                "prereserveYn": false,
+                "allotmentYn": false,
+                "memberRestrictionYn": false,
+                "maxCountPerPerson": 1,
+                "maxCountOnetimePerInning": 1,
+                "maxCountPerPersonUnlimitedYn": "N",
+                "maxCountPerInningUnlimitedYn": "Y",
+                "maxBuyCountPerInningUnlimitedYn": "Y",
+                "maxCountOnetimePerInningUnlimitedYn": "N",
+                "okCashBackUseYn": "N",
+                "productDeduction": false,
+                "paycoCouponUseCount": 0,
+                "ticketTypes": ["MOBILE", "REAL"],
+                "nonBankExpiryUseYn": false,
+                "facilityGlobalYn": false,
+                "availMaxCountPerInning": 999999,
+                "availMaxCountPerPerson": 1,
+                "availMaxBuyCountPerInning": 999999,
+                "isSports": false,
+                "isExhibition": false,
+                "isSeasonType": false,
+                "isConcert": true,
+                "hasSeat": true,
+                "isTicket": false,
+                "isSeasonTicket": false,
+                "isAdvanceTicket": false,
+                "isPaycoCouponUse": false,
+                "isConcertExhibition": true,
+                "restSeatMessage": "schedule.select.alert",
+                "isPeriodType": false
+            };
+            initData.meta = {
+                "draw": {
+                    "logical": {
+                        "logicalPlanId": 204660,
+                        "physicalPlanId": 39949,
+                        "autoSelect": false
+                    },
+                    "physical": {
+                        "physicalPlan": {
+                            "physicalPlanId": 39949,
+                            "physicalPlanName": "메이플스토리2024",
+                            "placeName": "일산 킨텍스",
+                            "hallName": "일산킨텍스 제2전시장 10A홀 ",
+                            "areaExposureFitRatio": true,
+                            "exposureMinValue": 100,
+                            "blockExposureFitRatio": true,
+                            "blockExposureMinValue": 100,
+                            "planGateCode": false,
+                            "planLinked": true,
+                            "planApiUse": false,
+                            "planExposure": true,
+                            "areaSeatMarkStandard": 4,
+                            "sectionMarkStandard": 4,
+                            "blockPhysicalPlan": false,
+                            "minimapExposure": false,
+                            "modifyDatetime": 1731460668000
+                        },
+                        "bgInfo": {
+                            "center": {
+                                "x": 720.0,
+                                "y": 720.0
+                            },
+                            "mapSize": 1440,
+                            "imageUrl": "//image.toast.com/aaaaab/ticketlink/TKL_CONCERT/kintex_maple_241113.png",
+                            "imageUrlThumnail": "//image.toast.com/aaaaab/ticketlink/TKL_CONCERT/kintex_maple_241113.png?160x160",
+                            "imageTileUrl": "//image.toast.com/aaaaab/ticketlink/TKL_CONCERT/kintex_maple_241113_{level}_{x}_{y}.png",
+                            "imageTileSize": 90,
+                            "empty": false
+                        },
+                        "blockBgInfo": {
+                            "mapSize": 0,
+                            "imageTileSize": 0,
+                            "empty": false
+                        },
+                        "seatMark": {
+                            "markName": [" ", " ", " ", "구역", "열", "번"],
+                            "markCode": ["NULL", "NULL", "NULL", "GENERAL", "ROW", "NUMBER"]
+                        },
+                        "pagingInfo": [{
+                            "virtualX": 0,
+                            "virtualY": 2
+                        }, {
+                            "virtualX": 0,
+                            "virtualY": 3
+                        }, {
+                            "virtualX": 0,
+                            "virtualY": 4
+                        }, {
+                            "virtualX": 1,
+                            "virtualY": 1
+                        }, {
+                            "virtualX": 1,
+                            "virtualY": 2
+                        }, {
+                            "virtualX": 1,
+                            "virtualY": 3
+                        }, {
+                            "virtualX": 1,
+                            "virtualY": 4
+                        }, {
+                            "virtualX": 2,
+                            "virtualY": 1
+                        }, {
+                            "virtualX": 2,
+                            "virtualY": 2
+                        }, {
+                            "virtualX": 2,
+                            "virtualY": 3
+                        }, {
+                            "virtualX": 2,
+                            "virtualY": 4
+                        }, {
+                            "virtualX": 3,
+                            "virtualY": 1
+                        }, {
+                            "virtualX": 3,
+                            "virtualY": 2
+                        }, {
+                            "virtualX": 3,
+                            "virtualY": 3
+                        }, {
+                            "virtualX": 3,
+                            "virtualY": 4
+                        }, {
+                            "virtualX": 4,
+                            "virtualY": 1
+                        }, {
+                            "virtualX": 4,
+                            "virtualY": 2
+                        }, {
+                            "virtualX": 4,
+                            "virtualY": 3
+                        }, {
+                            "virtualX": 4,
+                            "virtualY": 4
+                        }]
+                    },
+                    "blockInfo": [],
+                    "zoneInfo": [],
+                    "sectionInfo": [{
+                        "logicalPlanId": 204660,
+                        "sectionId": 67989,
+                        "sectionName": "A구역",
+                        "grades": [{
+                            "productGradeId": 107806,
+                            "priority": 0
+                        }]
+                    }, {
+                        "logicalPlanId": 204660,
+                        "sectionId": 68057,
+                        "sectionName": "B구역",
+                        "grades": [{
+                            "productGradeId": 107806,
+                            "priority": 0
+                        }]
+                    }, {
+                        "logicalPlanId": 204660,
+                        "sectionId": 67991,
+                        "sectionName": "C구역",
+                        "grades": [{
+                            "productGradeId": 107806,
+                            "priority": 0
+                        }]
+                    }, {
+                        "logicalPlanId": 204660,
+                        "sectionId": 67992,
+                        "sectionName": "D구역",
+                        "grades": [{
+                            "productGradeId": 107806,
+                            "priority": 0
+                        }]
+                    }, {
+                        "logicalPlanId": 204660,
+                        "sectionId": 68004,
+                        "sectionName": "E구역",
+                        "grades": [{
+                            "productGradeId": 107806,
+                            "priority": 0
+                        }]
+                    }, {
+                        "logicalPlanId": 204660,
+                        "sectionId": 68005,
+                        "sectionName": "F구역",
+                        "grades": [{
+                            "productGradeId": 107806,
+                            "priority": 0
+                        }]
+                    }, {
+                        "logicalPlanId": 204660,
+                        "sectionId": 68007,
+                        "sectionName": "G구역",
+                        "grades": [{
+                            "productGradeId": 107807,
+                            "priority": 0
+                        }]
+                    }, {
+                        "logicalPlanId": 204660,
+                        "sectionId": 68006,
+                        "sectionName": "H구역",
+                        "grades": [{
+                            "productGradeId": 107807,
+                            "priority": 0
+                        }]
+                    }, {
+                        "logicalPlanId": 204660,
+                        "sectionId": 68008,
+                        "sectionName": "휠체어구역",
+                        "grades": [{
+                            "productGradeId": 107808,
+                            "priority": 0
+                        }]
+                    }]
+                },
+                "productId": 53189,
+                "productName": "메이플스토리 2024 WINTER SHOWCASENEXT",
+                "productNameEng": "",
+                "placeName": "일산 킨텍스",
+                "placeNameEng": "Ilsan KINTEX",
+                "schedule": {
+                    "scheduleId": 946422117,
+                    "date": 1733554800000,
+                    "displayProductDate": "2024.12.07(토) 16:00",
+                    "vss": [],
+                    "teamMatchUseYn": "Y"
+                },
+                "isSports": false,
+                "isRemainExposure": true,
+                "limit": {
+                    "totalCnt": 1,
+                    "grades": [{
+                        "productGradeId": 107806,
+                        "cnt": 999999,
+                        "countLimitType": "NONE",
+                        "check": false
+                    }, {
+                        "productGradeId": 107807,
+                        "cnt": 999999,
+                        "countLimitType": "NONE",
+                        "check": false
+                    }, {
+                        "productGradeId": 107808,
+                        "cnt": 999999,
+                        "countLimitType": "NONE",
+                        "check": false
+                    }]
+                },
+                "seatScheduleChangeUseYn": false,
+                "reserveCommissionContent": "<b>① 좌석 선점이란?</b><br>\r\n                                            좌석배치도에서 동일한 좌석이 동시에 선택된 경우 먼저 다음 단계로 넘어간 고객이 좌석을 선점하게 됩니다. 따라서 좌석선택 이후 다음단계로 넘어가는 시점에 따라 좌석 선점 여부가 결정됩니다.\r\n                                            <br><br>\r\n                                            <b>② 좌석선택 시 주의사항</b><br>\r\n                                            좌석을 선택한 후 8분 이내에 결제를 완료해야 합니다. 해당 시간 내 결제가 이뤄지지 않을 경우 선택한 좌석의 예매가 취소됩니다.\r\n                                            또한 좌석 선택 시 잔여석은 표기되나 배치도에서 좌석이 보이지 않는 경우 해당 좌석이 선점되어 결제가 진행 중이므로 다른 좌석을 선택하여 주시기 바랍니다.​\r\n                                            \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                    \r\n                                ",
+                "isPriceExposure": true,
+                "bigProductYn": "Y",
+                "productAllotmentInfo": [],
+                "fina": false,
+                "kbl": false,
+                "frontPlanTypeCode": "NONE",
+                "wkbl": false,
+                "charlotte": false,
+                "kleague": false,
+                "coupang": false,
+                "oneq": false,
+                "jbhyundai": false,
+                "kovo": false,
+                "tmonet": false
+            };
+            initData.grades = [{
+                "gradeId": 107806,
+                "name": "FLOOR석",
+                "nameEng": "",
+                "color": "#749ECF",
+                "price": 15000,
+                "priority": 1,
+                "auto": false,
+                "direct": true,
+                "remainCnt": 0,
+                "notice": "",
+                "noticeEng": "",
+                "groupSeatCount": 0,
+                "agreeContext": "",
+                "agreeContextEng": "",
+                "preReserveSale": false,
+                "restriction": false,
+                "saleTypeCode": "ALL_SALE"
+            }, {
+                "gradeId": 107807,
+                "name": "계단석",
+                "nameEng": "",
+                "color": "#B291C4",
+                "price": 15000,
+                "priority": 2,
+                "auto": false,
+                "direct": true,
+                "remainCnt": 0,
+                "notice": "",
+                "noticeEng": "",
+                "groupSeatCount": 0,
+                "agreeContext": "",
+                "agreeContextEng": "",
+                "preReserveSale": false,
+                "restriction": false,
+                "saleTypeCode": "ALL_SALE"
+            }];
+            initData.meta.cssSuffix = "";
+            initData.meta.isWaitingReservationAvail = false;
+            initData.meta.scheduleWaitingReservation = {};
+
+            initData.globalLocale = "ko";
+            initData.imgUrl = "//tketlink.dn.toastoven.net/markup_resources/2024110401_M/web/img";
+            initData.device = 'pc_web';
+            initData.phase = "release";
+            initData.partnerNo = null;
+            initData.captcha = {
+                needAuth: true,
+                captchaKey: '954183f4-f189-4197-921e-5c30fcef7885'
+            };
+
+            initData.ticketType = {
+                needTicketType: false,
+            }
+
+            tk.util.reserve.checkLoadPrevious();
+
+            tk.state.global.init(initData.product, initData.meta, initData.grades, initData.globalLocale, initData.imgUrl, initData.device, initData.phase, initData.partnerNo);
+
+            //    tk.util.reserve.checkDevice();
+
+            angular.module('defaultApp', ['reserve.common.stepbar', 'tklProject']).value('product', initData.product).value('meta', initData.meta).value('grades', initData.grades).constant('bigProductYn', initData.meta.bigProductYn === 'Y').constant('captcha', initData.captcha).constant('ticket', initData.ticketType).controller('defaultCtrl', function($scope, product, meta, grades) {
+                $scope.product = product;
+                $scope.meta = meta;
+                $scope.grades = grades;
+                $scope.isSports = meta.isSports;
+            });
+
+            window.onpageshow = function(event) {
+                if (event.persisted) {
+                    window.location.reload();
+                    alert("기존 선점이 풀리게 됩니다.");
+                }
+            }
+            ;
+
+            //]]>
+        </script>
+    </body>
+</html>
